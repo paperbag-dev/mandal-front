@@ -1,20 +1,17 @@
 import React from 'react';
-import { Route } from 'react-router';
+import {Route} from 'react-router';
 
-import { Main, Another } from 'pages';
+import {Main} from 'pages';
+import Board from "../../src/pages/board/index";
 
 export default class Layout extends React.Component {
-    render() {
+    public render() {
         return (
             <div>
                 <div>
-          gnb
-                </div>
-                <div>
                     <Route exact path="/" component={Main}/>
-                    <Route exact path="/another" component={Another}/>
+                    <Route exact path="/another" component={Board}/>
                 </div>
-                <div>footer</div>
             </div>
         )
     }
