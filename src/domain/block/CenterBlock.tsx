@@ -1,7 +1,7 @@
-import {BlockData, GetBlockResponse} from "@domain/block/GetBlockResponse";
-import Block from "@domain/block/Block";
-import React, {ReactNode} from "react";
-import CompositeBlockComponent from "../../components/block/compositeBlock/CompositeBlock";
+import {BlockData, GetBlockResponse} from '@domain/block/GetBlockResponse';
+import Block from '@domain/block/Block';
+import React, {ReactNode} from 'react';
+import CompositeBlockComponent from '@components/block/compositeBlock/CompositeBlock';
 
 interface CenterBlockData extends BlockData{
     title: string;
@@ -13,7 +13,7 @@ export default class CenterBlock implements Block {
     private readonly blockData: CenterBlockData
 
     public constructor(blockOption: GetBlockResponse){
-        this.blockData = blockOption.blockData as CenterBlockData
+      this.blockData = blockOption.blockData as CenterBlockData;
     }
     public onLeftClick(): void {
     }
@@ -22,10 +22,10 @@ export default class CenterBlock implements Block {
     }
 
     public toString(): string {
-        return this.blockData.title
+      return this.blockData.title;
     }
 
     public draw(): ReactNode {
-        return (<CompositeBlockComponent></CompositeBlockComponent>);
+      return (<CompositeBlockComponent></CompositeBlockComponent>);
     }
 }

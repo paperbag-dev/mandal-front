@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {ReactNode} from 'react';
 
 export default class TestComponentTwo extends React.Component {
-    render() {
-        return (
-            <div>this is test component two</div>
-        )
-    }
+  render(): ReactNode {
+    return (
+      <div>this is test component two</div>
+    );
+  }
 }

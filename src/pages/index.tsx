@@ -1,2 +1,2 @@
-export { default as Main } from './Main';
-export { default as Another } from './Another';
+export {default as Main} from './Main';
+export {default as Another} from './Another';
