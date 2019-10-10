@@ -20,12 +20,15 @@
     "jsx": "react",
     "baseUrl": "src",
     "paths": {
-      "@/*": [
-        "./*"
+      "@domain/*": [
+        "domain/*"
+      ],
+      "@pages/*":  [
+        "pages/*"
       ]
     }
   },
   "include": [
     "src"
-  ],
+  ]
 }
