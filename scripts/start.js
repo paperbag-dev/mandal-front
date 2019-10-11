@@ -15,7 +15,9 @@ process.on('unhandledRejection', err => {
 // Ensure environment variables are read.
 require('../config/env');
 
-
+const sys = require('sys');
+const os = require('os');
+const exec = require('child_process').exec;
 const fs = require('fs');
 const chalk = require('react-dev-utils/chalk');
 const webpack = require('webpack');
@@ -35,7 +37,13 @@ const createDevServerConfig = require('../config/webpackDevServer.config');
 
 const useYarn = fs.existsSync(paths.yarnLockFile);
 const isInteractive = process.stdout.isTTY;
+function puts(error, stdout, stderr) { sys.puts(stdout) }
 
+if (os.type() === 'Linux' ) {
+  exec("sudo eslint src --ext ts,tsx ", puts);
+}else {
+  exec("eslint src --ext ts,tsx", puts);
+}
 // Warn and crash if required files are missing
 if (!checkRequiredFiles([paths.appHtml, paths.appIndexJs])) {
   process.exit(1);

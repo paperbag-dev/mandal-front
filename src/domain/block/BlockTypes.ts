@@ -1,5 +1,5 @@
 export enum BlockTypes {
-    CENTER= "CENTER",
-    COMPOSITE="COMPOSITE",
-    LEAF="LEAF"
+    CENTER= 'CENTER',
+    COMPOSITE='COMPOSITE',
+    LEAF='LEAF'
 }

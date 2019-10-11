@@ -1,4 +1,4 @@
-import {BlockTypes} from "@domain/block/BlockTypes";
+import {BlockTypes} from '@domain/block/BlockTypes';
 
 export interface GetBlockResponse {
     blockType: BlockTypes;

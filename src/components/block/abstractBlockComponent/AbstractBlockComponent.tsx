@@ -1,4 +1,4 @@
-import React, {HTMLAttributes} from "react";
+import React, {HTMLAttributes} from 'react';
 import './styled.scss';
 
 export interface Props extends HTMLAttributes<HTMLDivElement> {
@@ -12,9 +12,9 @@ interface State {
 
 export default abstract class  AbstractBlockComponent extends React.Component {
 
-    constructor(props: HTMLAttributes<HTMLDivElement>){
-        super(props);
-    }
+  constructor(props: HTMLAttributes<HTMLDivElement>){
+    super(props);
+  }
 
     abstract onNormalLeftClick(): void;
 
@@ -23,14 +23,14 @@ export default abstract class  AbstractBlockComponent extends React.Component {
     abstract onBlur(): void;
 
     onLeftClick(event: React.MouseEvent<HTMLElement>): void {
-        if(event.ctrlKey){
-            return this.onCtrlLeftClick();
-        }
-        return this.onNormalLeftClick()
+      if(event.ctrlKey){
+        return this.onCtrlLeftClick();
+      }
+      return this.onNormalLeftClick();
     }
 
     onRightClick(event: MouseEvent): void {
-        event
+      event;
     }
 
     onDrag(): void{

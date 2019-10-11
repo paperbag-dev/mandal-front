@@ -1,4 +1,4 @@
-import {GetBlockResponse} from "@domain/block/GetBlockResponse";
+import {GetBlockResponse} from '@domain/block/GetBlockResponse';
 
 export interface GetBoardResponse {
     blocks: GetBlockResponse[];
