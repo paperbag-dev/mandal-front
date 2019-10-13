@@ -5,7 +5,7 @@ import {Main} from 'pages';
 import Board from '../../src/pages/board/index';
 
 export default class Layout extends React.Component {
-  render(): ReactNode {
+  render (): ReactNode {
     return (
       <div>
         <div>

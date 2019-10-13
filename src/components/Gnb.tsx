@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default class TestComponentOne extends React.Component {
-  render() {
+  render () {
     return (
       <div>
         <span>link 1</span>

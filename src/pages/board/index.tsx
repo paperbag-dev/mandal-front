@@ -7,10 +7,15 @@ import BlockFactory from '@domain/block/BlockFactory';
 
 import './styles.scss';
 
-const mockCompositeBlock: GetBlockResponse = {
-  blockType: BlockTypes.COMPOSITE,
-  blockData: {
-    title: 'hello world!'
+const mockCompositeBlock: any = {
+  'blockType': BlockTypes.COMPOSITE,
+  'blockData': {
+    'title': 'hello world!'
+  },
+  'blockOption': {
+    'titleProviderOption': {
+      'textColor': '#ffc125'
+    }
   }
 };
 
@@ -43,7 +48,7 @@ export const mockResponse: GetBoardResponse = {
 
 export default class Board extends React.Component {
 
-  private drawBoard(): ReactNode[]{
+  private drawBoard (): ReactNode[]{
     const blockResponses: GetBlockResponse[] = mockResponse.blocks;
     const blocks: ReactNode[] = [];
     for(let i=0; i < blockResponses.length; i++){
@@ -54,7 +59,7 @@ export default class Board extends React.Component {
     return blocks;
   }
 
-  public render(): ReactNode {
+  public render (): ReactNode {
     return (
       <div>
         <div className={'board'}>

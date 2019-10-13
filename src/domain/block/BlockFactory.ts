@@ -4,7 +4,7 @@ import DynamicClass from '../util/DynamicClass';
 
 export default class BlockFactory {
 
-  public static of(blockOption: GetBlockResponse): Block{
+  public static of (blockOption: GetBlockResponse): Block{
     return new DynamicClass(blockOption.blockType, blockOption) as Block;
   }
 

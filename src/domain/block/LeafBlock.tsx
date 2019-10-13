@@ -11,15 +11,15 @@ export default class LeafBlock implements Block{
 
     private readonly blockData: LeafBlockData
 
-    public constructor(blockOption: GetBlockResponse){
+    public constructor (blockOption: GetBlockResponse){
       this.blockData = blockOption.blockData as LeafBlockData;
     }
 
-    public toString(): string {
+    public toString (): string {
       return this.blockData.title;
     }
 
-    public draw(): ReactNode {
+    public draw (): ReactNode {
       return (<LeafBlockComponent></LeafBlockComponent>);
     }
 }

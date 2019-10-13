@@ -1,55 +1,68 @@
 import React, {HTMLAttributes, ReactNode} from 'react';
 import './styled.scss';
 import AbstractBlockComponent from '../abstractBlockComponent/AbstractBlockComponent';
-
-export interface Props extends HTMLAttributes<HTMLDivElement> {
-
+import CompositeBlockInteraction from '@domain/plugin/CompositeBlockInteraction';
+import {throttle} from 'lodash';
+import TitleProvider, {TitleProviderProps} from '@components/block/TitleProvider';
+export interface CompositeBlockProps extends HTMLAttributes<HTMLDivElement> {
+  interaction: CompositeBlockInteraction;
 }
 
-interface State {
+interface CompositeBlockState {
     mockText: string;
 }
 
 /**
  * Block that can be parent of other blocks
  */
-export default class CompositeBlockComponent extends AbstractBlockComponent {
+export default class CompositeBlockComponent<T>
+  extends AbstractBlockComponent<CompositeBlockProps, CompositeBlockState> {
 
-    public state: State
+    public state: CompositeBlockState;
+    public interaction: CompositeBlockInteraction;
+    private TitleProviderComponent: React.ReactElement<TitleProvider<TitleProviderProps>>;
 
-    public constructor(props: HTMLAttributes<HTMLDivElement>) {
+    public constructor (props: CompositeBlockProps) {
       super(props);
       this.state = {
         mockText: 'init'
       };
+
+      this.interaction = this.props.interaction;
+      this.TitleProviderComponent = this.interaction.titleProvider;
     }
 
-    public onRightClick(): void {
+    public onRightClick (): void {
     }
 
-    public onNormalLeftClick(): void {
+    public onNormalLeftClick (): void {
       this.setState({
         mockText: 'Composite block is currently does nothing'
       });
     }
 
-    public onCtrlLeftClick(): void {
+    public onCtrlLeftClick (): void {
 
     }
 
-    public onBlur(): void {
+    public onBlur (): void {
       this.setState({
         mockText: 'blurred'
       });
     }
 
-    public render(): ReactNode {
+    public render (): ReactNode {
+
       return(<div className={'item'}
-        onClick={this.onLeftClick.bind(this)}
+        onClick={this.interaction.leftClickHandler}
         onBlur={this.onBlur.bind(this)}
+        onMouseMove={
+          throttle(this.interaction.hoverHandler.bind(this.interaction), 500)
+        }
         tabIndex={0}
       >
-        <p>{this.state.mockText}</p>
+
+        {this.TitleProviderComponent}
       </div>);
     }
 }

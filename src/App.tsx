@@ -3,7 +3,7 @@ import {Route} from 'react-router';
 import Layout from './layouts/Layout';
 
 class App extends React.Component  {
-  render(): ReactNode {
+  render (): ReactNode {
     return (
       <div>
         <Route path="/" component={Layout}/>
