@@ -5,7 +5,7 @@ import TestComponentOne from 'components/TestComponentOne';
 import './style/Main.scss';
 
 export default class Main extends React.Component {
-  render(): ReactNode {
+  render (): ReactNode {
     return (
       <div className={'page-wrapper'}>
         <h1 className={'page-title'}>main page</h1>

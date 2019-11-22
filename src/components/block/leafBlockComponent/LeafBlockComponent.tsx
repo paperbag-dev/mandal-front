@@ -15,11 +15,11 @@ interface State {
 /**
  * Block that is literally a leaf.
  */
-export default class LeafBlockComponent extends AbstractBlockComponent {
+export default class LeafBlockComponent extends AbstractBlockComponent<Props, State> {
 
-    public state: State
+    public state: State;
 
-    public constructor(props: HTMLAttributes<HTMLDivElement>) {
+    public constructor (props: HTMLAttributes<HTMLDivElement>) {
       super(props);
       this.state = {
         mockText: 'init',
@@ -28,7 +28,7 @@ export default class LeafBlockComponent extends AbstractBlockComponent {
       };
     }
 
-    public drawComponent(): ReactNode {
+    public drawComponent (): ReactNode {
 
       if (this.state.editMode) {
         return (<input value={this.state.editText}
@@ -40,33 +40,33 @@ export default class LeafBlockComponent extends AbstractBlockComponent {
       return (<h2>{this.state.mockText}</h2>);
     }
 
-    public onRightClick(): void {
+    public onRightClick (): void {
 
     }
 
-    public onNormalLeftClick(): void {
+    public onNormalLeftClick (): void {
       this.setState({
         editMode: true
       });
     }
 
-    public onCtrlLeftClick(): void {
+    public onCtrlLeftClick (): void {
 
     }
 
-    public onBlur(): void {
+    public onBlur (): void {
 
     }
 
-    private onInputChange(event: React.ChangeEvent<HTMLInputElement>): void {
+    private onInputChange (event: React.ChangeEvent<HTMLInputElement>): void {
       this.setState({
         ...this.state,
         editText: event.target.value,
-        mockTExt: event.target.value
+        mockText: event.target.value
       });
     }
 
-    private onInputBlur(event: React.ChangeEvent<HTMLInputElement>): void {
+    private onInputBlur (event: React.ChangeEvent<HTMLInputElement>): void {
       this.setState({
         ...this.state,
         editMode: false,
@@ -74,7 +74,7 @@ export default class LeafBlockComponent extends AbstractBlockComponent {
       });
     }
 
-    public render(): ReactNode {
+    public render (): ReactNode {
       return(<div className={'item'}
         onClick={this.onLeftClick.bind(this)}
         onBlurCapture={this.onBlur.bind(this)}

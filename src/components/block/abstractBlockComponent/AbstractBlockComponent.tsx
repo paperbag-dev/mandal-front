@@ -5,14 +5,14 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
 
 }
 
-interface State {
+interface BlockState {
     mockText: string;
-    blockFocused: boolean;
+    editMode: true;
 }
 
-export default abstract class  AbstractBlockComponent extends React.Component {
+export default abstract class  AbstractBlockComponent<Props, State> extends React.Component<Props, State> {
 
-  constructor(props: HTMLAttributes<HTMLDivElement>){
+  constructor (props: Props){
     super(props);
   }
 
@@ -22,18 +22,18 @@ export default abstract class  AbstractBlockComponent extends React.Component {
 
     abstract onBlur(): void;
 
-    onLeftClick(event: React.MouseEvent<HTMLElement>): void {
+    onLeftClick (event: React.MouseEvent<HTMLElement>): void {
       if(event.ctrlKey){
         return this.onCtrlLeftClick();
       }
       return this.onNormalLeftClick();
     }
 
-    onRightClick(event: MouseEvent): void {
+    onRightClick (event: MouseEvent): void {
       event;
     }
 
-    onDrag(): void{
+    onDrag (): void{
 
     }
 }

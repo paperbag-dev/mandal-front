@@ -26,6 +26,7 @@ const getClientEnvironment = require('./env');
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpackPlugin');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
+const lodashModulePlugin = require('lodash-webpack-plugin');
 const eslint = require('eslint');
 
 const postcssNormalize = require('postcss-normalize');
